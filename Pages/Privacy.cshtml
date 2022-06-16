@@ -1,4 +1,5 @@
 ﻿@page
+@using System.Collections
 @model PrivacyModel
 @{
     ViewData["Title"] = "Privacy Policy";
@@ -6,8 +7,8 @@
 <h1>@ViewData["Title"]</h1>
 
 <ul>
-@foreach(var env in Environment.GetEnvironmentVariables().Values)
+@foreach(DictionaryEntry env in Environment.GetEnvironmentVariables())
 {
-    <li>@env</li>
+    <li>[@env.Key] => @env.Value</li>
 }
 </ul>
